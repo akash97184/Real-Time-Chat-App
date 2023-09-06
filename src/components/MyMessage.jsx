@@ -11,7 +11,7 @@ const MyMessage = ({ message }) => {
         className="message-image"
         style={{ float: 'right' }}
       />
-    )
+    );
   }
 
   // if message is not image but an actual text , then we will render it
@@ -19,7 +19,7 @@ const MyMessage = ({ message }) => {
     <div className="message" style ={{ float: 'right', marginRight: '18px', color: 'white', backgroundColor: '#3B2A50'}}>
       {message.text}
     </div>
-  )
-}
+  );
+};
 
 export default MyMessage;

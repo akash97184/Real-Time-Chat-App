@@ -7,8 +7,7 @@ const ChatFeed = (props) => {
 
     const chat = chats && chats[activeChat];
 
-    const renderReadReceipts = (message, isMyMessage) => {
-        return chat.people.map((person, index) => person.last_read === message.id && (
+    const renderReadReceipts = (message, isMyMessage) => chat.people.map((person, index) => person.last_read === message.id && (
             <div
                 key={`read_${index}`}
                 className="read-receipt"
@@ -17,8 +16,7 @@ const ChatFeed = (props) => {
                     backgroundImage: person.avatar && `url(${person.avatar})`,
                 }}
             />
-        ));
-    };
+    ));
 
     // For generating messages
     const renderMessages = () => {
@@ -43,8 +41,8 @@ const ChatFeed = (props) => {
                   </div>
                 </div>
               );
-        })
-    }
+        });
+    };
 
     renderMessages();
 
@@ -65,6 +63,6 @@ const ChatFeed = (props) => {
       </div>
     </div>
   );
-}
+};
 
 export default ChatFeed;

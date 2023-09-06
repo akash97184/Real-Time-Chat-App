@@ -9,6 +9,12 @@ const MeassageForm = (props) => {
   const [value, setValue] = useState('');
   const { chatId, creds } = props;
 
+  const handleChange = (event) => {
+    setValue(event.target.value);
+    // we will use one of the features of chatengine
+    isTyping(props, chatId);
+  };
+
   const handleSubmit = (event) => {
     // this is going to make sure to not do a browser refresh once u submit the form
     event.preventDefault();
@@ -22,11 +28,7 @@ const MeassageForm = (props) => {
     setValue("");
   };
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
-    // we will use one of the features of chatengine
-    isTyping(props, chatId);
-  };
+  
 
   const handleUpload = (event) => {
     sendMessage(creds, chatId, { files: event.target.files, text: '' });
@@ -60,7 +62,7 @@ const MeassageForm = (props) => {
           <SendOutlined className="send-icon" />
          </button>
     </form>
-  )
-}
+  );
+};
 
 export default MeassageForm;
